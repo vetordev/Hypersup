@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
-from routes.SalesRouter import SalesRouter
+from routes.sales_router import SalesRouter
+from database.database import Database
 
 class Server:
 
@@ -11,7 +12,9 @@ class Server:
       salesRouter.router()
       pass
 
-   def initDatabase(self):
+   def initDatabase(self, user, passwd, host, database):
+      db = Database(user, passwd, host, database)
+      db.connect()
       pass
 
    def run(self):

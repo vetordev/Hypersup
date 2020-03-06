@@ -6,6 +6,7 @@ import src.server
 
 server = src.server.Server(__name__)
 server.initRoutes()
+server.initDatabase('root', '', 'localhost', 'devdb')
 server.run()
 
 
