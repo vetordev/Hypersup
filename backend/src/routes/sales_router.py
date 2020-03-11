@@ -9,6 +9,6 @@ class SalesRouter:
    def router(self):
       
       @self.app.route('/sales', methods=['GET'])
-      def index(): return SalesControllers.index()
+      def index(): return SalesController.index()
              
       pass

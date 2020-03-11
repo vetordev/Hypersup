@@ -1,16 +1,23 @@
 from flask import Flask, jsonify, request
+from flask_socketio import SocketIO
 from routes.sales_router import SalesRouter
 from database.database import Database
+from websocket.socket import Socket
 
 class Server:
 
    def __init__(self, name):
       self.app = Flask(name)
+      self.app.config['SECRET_KEY'] = 'secret!'
+      self.socketio = SocketIO(self.app, cors_allowed_origins="*")
       
    def initRoutes(self):
       salesRouter = SalesRouter(self.app)
       salesRouter.router()
       pass
+   def initSocket(self):
+      socket = Socket(self.socketio)
+      socket.run()
 
    def initDatabase(self, user, passwd, host, database):
       db = Database(user, passwd, host, database)
@@ -18,7 +25,8 @@ class Server:
       pass
 
    def run(self):
-      self.app.run(debug=True)
+      self.app.debug = True
+      self.socketio.run(self.app)
    
 
    
