@@ -6,6 +6,8 @@ from routes.stock_router import StockRouter
 from routes.lote_router import LotRouter
 from routes.product_router import ProductRouter
 from routes.cashier_router import CashierRouter
+from routes.shelf_router import ShelfRouter
+from routes.safebox_router import SafeboxRouter
 
 from database.database import Database
 
@@ -33,6 +35,12 @@ class Server:
 
       cashierRouter = CashierRouter(self.app)
       cashierRouter.router()
+
+      shelfRouter = ShelfRouter(self.app)
+      shelfRouter.router()
+
+      safeboxRouter = SafeboxRouter(self.app)
+      safeboxRouter.router()
 
       pass
    def initSocket(self):
