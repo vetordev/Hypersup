@@ -1,0 +1,1 @@
+# __all__ = ["lote_router", "product_router", "sales_router", "stock_router"]

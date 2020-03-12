@@ -1,7 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_socketio import SocketIO
+
 from routes.sales_router import SalesRouter
+from routes.stock_router import StockRouter
+from routes.lote_router import LotRouter
+
 from database.database import Database
+
 from websocket.socket import Socket
 
 class Server:
@@ -14,6 +19,13 @@ class Server:
    def initRoutes(self):
       salesRouter = SalesRouter(self.app)
       salesRouter.router()
+
+      stockRouter = StockRouter(self.app)
+      stockRouter.router()
+
+      lotRouter = LotRouter(self.app)
+      lotRouter.router()
+
       pass
    def initSocket(self):
       socket = Socket(self.socketio)
