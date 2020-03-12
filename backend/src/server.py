@@ -8,6 +8,7 @@ from routes.product_router import ProductRouter
 from routes.cashier_router import CashierRouter
 from routes.shelf_router import ShelfRouter
 from routes.safebox_router import SafeboxRouter
+from routes.delivery_router import DeliveryRouter
 
 from database.database import Database
 
@@ -41,7 +42,9 @@ class Server:
 
       safeboxRouter = SafeboxRouter(self.app)
       safeboxRouter.router()
-
+      
+      deliveryRouter = DeliveryRouter(self.app)
+      deliveryRouter.router()
       pass
    def initSocket(self):
       socket = Socket(self.socketio)
