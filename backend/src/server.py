@@ -5,6 +5,7 @@ from routes.sales_router import SalesRouter
 from routes.stock_router import StockRouter
 from routes.lote_router import LotRouter
 from routes.product_router import ProductRouter
+from routes.cashier_router import CashierRouter
 
 from database.database import Database
 
@@ -29,6 +30,9 @@ class Server:
 
       productRouter = ProductRouter(self.app)
       productRouter.router()
+
+      cashierRouter = CashierRouter(self.app)
+      cashierRouter.router()
 
       pass
    def initSocket(self):
