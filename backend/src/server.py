@@ -4,6 +4,7 @@ from flask_socketio import SocketIO
 from routes.sales_router import SalesRouter
 from routes.stock_router import StockRouter
 from routes.lote_router import LotRouter
+from routes.product_router import ProductRouter
 
 from database.database import Database
 
@@ -25,6 +26,9 @@ class Server:
 
       lotRouter = LotRouter(self.app)
       lotRouter.router()
+
+      productRouter = ProductRouter(self.app)
+      productRouter.router()
 
       pass
    def initSocket(self):
