@@ -22,28 +22,28 @@ class Server:
       self.socketio = SocketIO(self.app, cors_allowed_origins="*")
       
    def initRoutes(self):
-      salesRouter = SalesRouter(self.app)
+      salesRouter = SalesRouter(self.app, self.socketio)
       salesRouter.router()
 
-      stockRouter = StockRouter(self.app)
+      stockRouter = StockRouter(self.app, self.socketio)
       stockRouter.router()
 
-      lotRouter = LotRouter(self.app)
+      lotRouter = LotRouter(self.app, self.socketio)
       lotRouter.router()
 
       productRouter = ProductRouter(self.app, self.socketio)
       productRouter.router()
 
-      cashierRouter = CashierRouter(self.app)
+      cashierRouter = CashierRouter(self.app, self.socketio)
       cashierRouter.router()
 
-      shelfRouter = ShelfRouter(self.app)
+      shelfRouter = ShelfRouter(self.app, self.socketio)
       shelfRouter.router()
 
-      safeboxRouter = SafeboxRouter(self.app)
+      safeboxRouter = SafeboxRouter(self.app, self.socketio)
       safeboxRouter.router()
       
-      deliveryRouter = DeliveryRouter(self.app)
+      deliveryRouter = DeliveryRouter(self.app, self.socketio)
       deliveryRouter.router()
       pass
    def initSocket(self):
