@@ -31,7 +31,7 @@ class Server:
       lotRouter = LotRouter(self.app)
       lotRouter.router()
 
-      productRouter = ProductRouter(self.app)
+      productRouter = ProductRouter(self.app, self.socketio)
       productRouter.router()
 
       cashierRouter = CashierRouter(self.app)
@@ -47,7 +47,7 @@ class Server:
       deliveryRouter.router()
       pass
    def initSocket(self):
-      socket = Socket(self.socketio)
+      socket = Socket(self.socketio, self.app)
       socket.run()
 
    def initDatabase(self, user, passwd, host, database):

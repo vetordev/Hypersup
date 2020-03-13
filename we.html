@@ -13,6 +13,9 @@
     socket.on('connect', function() {
         console.log('Conectado')
     })
+    socket.on('product', (product) => {
+        console.log(product)
+    })
     
     
 </script>

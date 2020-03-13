@@ -1,17 +1,22 @@
 from flask import jsonify
 class ProductController:
-   def index():
-      return jsonify('Go')
+
+   def __init__(self, socket):
+      self.socket = socket
+      
+   def index(self):
+      self.socket.emit('product', {'product' : '0001'})
+      return jsonify('GO')
       pass
 
-   def show():
+   def show(self):
       pass
 
-   def store():
+   def store(self):
       pass
 
-   def update():
+   def update(self):
       pass
 
-   def destroy():
+   def destroy(self):
       pass

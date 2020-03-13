@@ -4,6 +4,7 @@ class DeliveryRouter:
 
    def __init__(self, app):
       self.app = app
+      self.deliveryController = DeliveryController()
       
    
    def router(self):
