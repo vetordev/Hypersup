@@ -1,11 +1,14 @@
 from flask import jsonify
 class DeliveryController:
 
-   def __init__(self, socket):
+   def __init__(self, socket, db):
       self.socket = socket
+      self.db = db
 
    def index(self):
-      return jsonify('Go')
+      query = 'select * from encomenda'
+      data = self.db.findAll(query)
+      return jsonify(data)
       pass
 
    def show(self):

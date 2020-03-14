@@ -10,20 +10,24 @@ class Database:
 
    def connect(self):
       self.connection = mysql.connector.connect(user=self.user, password=self.passwd, host=self.host, database=self.database)
+      self.cursor = self.connection.cursor(dictionary=True)
       return self.connection
       pass
    
-   def findAll():
+   def findAll(self, query):
+      # Retorna todos os dados
+      self.cursor.execute(query)
+      return self.cursor.fetchall()
       pass
 
-   def findOne():
+   def findOne(self):
       pass
 
-   def insert():
+   def insert(self):
       pass
 
-   def update():
+   def update(self):
       pass
 
-   def delete():
+   def delete(self):
       pass

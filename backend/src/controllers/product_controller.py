@@ -1,12 +1,14 @@
 from flask import jsonify
 class ProductController:
 
-   def __init__(self, socket):
+   def __init__(self, socket, db):
       self.socket = socket
+      self.db = db
       
    def index(self):
-      self.socket.emit('product', {'product' : '0001'})
-      return jsonify('GO')
+      query = 'select * from produto'
+      data = self.db.findAll(query)
+      return jsonify(data)
       pass
 
    def show(self):

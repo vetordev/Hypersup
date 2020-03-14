@@ -1,12 +1,16 @@
 from flask import jsonify
 class StockController:
 
-   def __init__(self, socket):
+   def __init__(self, socket, db):
       self.socket = socket
+      self.db = db
 
    def index(self):
-      return jsonify('OK')
+      query = 'select * from estoque'
+      data = self.db.findAll(query)
+      return jsonify(data)
       pass
+   
    
    def show(self):
       pass

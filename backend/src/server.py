@@ -22,28 +22,28 @@ class Server:
       self.socketio = SocketIO(self.app, cors_allowed_origins="*")
       
    def initRoutes(self):
-      salesRouter = SalesRouter(self.app, self.socketio)
+      salesRouter = SalesRouter(self.app, self.socketio, self.db)
       salesRouter.router()
 
-      stockRouter = StockRouter(self.app, self.socketio)
+      stockRouter = StockRouter(self.app, self.socketio, self.db)
       stockRouter.router()
 
-      lotRouter = LotRouter(self.app, self.socketio)
+      lotRouter = LotRouter(self.app, self.socketio, self.db)
       lotRouter.router()
 
-      productRouter = ProductRouter(self.app, self.socketio)
+      productRouter = ProductRouter(self.app, self.socketio, self.db)
       productRouter.router()
 
-      cashierRouter = CashierRouter(self.app, self.socketio)
+      cashierRouter = CashierRouter(self.app, self.socketio, self.db)
       cashierRouter.router()
 
-      shelfRouter = ShelfRouter(self.app, self.socketio)
+      shelfRouter = ShelfRouter(self.app, self.socketio, self.db)
       shelfRouter.router()
 
-      safeboxRouter = SafeboxRouter(self.app, self.socketio)
+      safeboxRouter = SafeboxRouter(self.app, self.socketio, self.db)
       safeboxRouter.router()
       
-      deliveryRouter = DeliveryRouter(self.app, self.socketio)
+      deliveryRouter = DeliveryRouter(self.app, self.socketio, self.db)
       deliveryRouter.router()
       pass
    def initSocket(self):
@@ -51,8 +51,8 @@ class Server:
       socket.run()
 
    def initDatabase(self, user, passwd, host, database):
-      db = Database(user, passwd, host, database)
-      db.connect()
+      self.db = Database(user, passwd, host, database)
+      self.db.connect()
       pass
 
    def run(self):

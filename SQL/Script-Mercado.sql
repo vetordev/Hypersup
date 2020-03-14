@@ -5,17 +5,18 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema mercado
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema mercado
 -- -----------------------------------------------------
+drop database `mercado`;
 CREATE SCHEMA IF NOT EXISTS `mercado` DEFAULT CHARACTER SET utf8 ;
 USE `mercado` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`produto`
+-- Table `mercado`.`produto`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`produto` ;
 
@@ -30,7 +31,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`lote`
+-- Table `mercado`.`lote`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`lote` ;
 
@@ -50,7 +51,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`estoque`
+-- Table `mercado`.`estoque`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`estoque` ;
 
@@ -67,7 +68,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`gondola`
+-- Table `mercado`.`gondola`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`gondola` ;
 
@@ -91,7 +92,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`venda`
+-- Table `mercado`.`venda`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`venda` ;
 
@@ -103,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `mercado`.`venda` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`item_venda`
+-- Table `mercado`.`item_venda`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`item_venda` ;
 
@@ -126,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `mercado`.`item_venda` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`caixa`
+-- Table `mercado`.`caixa`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`caixa` ;
 
@@ -144,7 +145,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`cofre`
+-- Table `mercado`.`cofre`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`cofre` ;
 
@@ -163,7 +164,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`encomenda`
+-- Table `mercado`.`encomenda`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `mercado`.`encomenda` ;
 

@@ -2,9 +2,9 @@ from controllers.sales_controller import SalesController
 
 class SalesRouter:
 
-   def __init__(self, app, socket):
+   def __init__(self, app, socket, db):
       self.app = app
-      self.salesController = SalesController(socket)
+      self.salesController = SalesController(socket, db)
    
    def router(self):
       

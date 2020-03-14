@@ -2,9 +2,9 @@ from controllers.shelf_controller import ShelfController
 
 class ShelfRouter:
 
-   def __init__(self, app, socket):
+   def __init__(self, app, socket, db):
       self.app = app
-      self.shelfController = ShelfController(socket)
+      self.shelfController = ShelfController(socket, db)
    
    def router(self):
       

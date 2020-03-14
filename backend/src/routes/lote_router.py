@@ -1,9 +1,9 @@
 from controllers.lote_controller import LotController
 class LotRouter:
 
-   def __init__(self, app, socket):
+   def __init__(self, app, socket, db):
       self.app = app
-      self.lotController = LotController(socket)
+      self.lotController = LotController(socket, db)
    
    def router(self):
       

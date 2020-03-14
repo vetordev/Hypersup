@@ -1,9 +1,9 @@
 from controllers.stock_controller import StockController
 class StockRouter:
 
-   def __init__(self, app, socket):
+   def __init__(self, app, socket, db):
       self.app = app
-      self.stockController = StockController(socket)
+      self.stockController = StockController(socket, db)
    
    def router(self):
       

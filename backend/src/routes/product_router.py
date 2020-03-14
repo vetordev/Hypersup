@@ -1,9 +1,9 @@
 from controllers.product_controller import ProductController
 class ProductRouter:
 
-   def __init__(self, app, socket):
+   def __init__(self, app, socket, db):
       self.app = app      
-      self.productController = ProductController(socket)
+      self.productController = ProductController(socket, db)
 
    def router(self):
    
