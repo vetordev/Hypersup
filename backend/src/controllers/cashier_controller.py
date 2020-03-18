@@ -22,13 +22,13 @@ class CashierController:
          #DEPOIS INSERE NO CAIXA
       #Venda
       query = "INSERT INTO VENDA ..."
-      db.insert(query)
+      self.db.insert(query)
       #ITEM
       query = "INSERT INTO ITEM..."
-      db.insert(query)
+      self.db.insert(query)
       #CAIXA
       query = "INSERT INTO CAIXA ..."
-      db.insert(query)
+      self.db.insert(query)
 
       #Reposição de produtos
          #Retirada da gondola -- melhor fazer com stored procedures
@@ -36,25 +36,30 @@ class CashierController:
          # < 1 lote no estoque -> notificar sistema web
       #GONDOLA
       query = "SELECT * FROM GONDOLA ..."
-      products = db.findOne(query)
+      products = 11 #self.db.findOne(query)
       if products < 10:
          #calculo pra pegar a qtd de produtos que faltam
 
          #Retira do estoque
          query = "UPDATE ESTOQUE SET ..."
-         db.update(query)
+         self.db.update(query)
          #Reposição da gondola
          query = "UPDATE GONDOLA SET ..."
-         db.update(query)
+         self.db.update(query)
          pass
       #ESTOQUE
       query = "SELECT * FROM ESTOQUE ..."
-      estoque = db.findOne(query)
+      estoque = 0.5 #self.db.findOne(query)
       # calc
       if estoque < 1:
          #Emitir uma notificação pro sistema web
+         self.socket.emit('without_stock', {'stock': estoque} )
+         return jsonify('EMIT')
          pass
+
+      
       pass
+   
 
    def update(self):
       pass

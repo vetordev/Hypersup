@@ -20,14 +20,26 @@ class Database:
       return self.cursor.fetchall()
       pass
 
-   def findOne(self):
+   def findOne(self, query):
+      cursor = con.cursor(dictionary=True)
+      cursor.execute(query)
+      return self.cursor.fetchone()
       pass
 
    def insert(self, query):
+      cursor = con.cursor(dictionary=True)
+      cursor.execute(query)
+      con.commit()
       pass
 
-   def update(self):
+   def update(self, query):
+      cursor = con.cursor(dictionary=True)
+      cursor.execute(query)
+      con.commit()
       pass
 
-   def delete(self):
+   def delete(self, query):
+      cursor = con.cursor(dictionary=True)
+      cursor.execute(query)
+      con.commit()
       pass
