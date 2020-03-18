@@ -10,4 +10,6 @@ class CashierRouter:
       
       @self.app.route('/cashier', methods=['GET'])
       def indexCashier(): return self.cashierController.index()
-             
+
+      @self.app.route('/cashier', methods=['POST'])
+      def storeCashier(): return self.cashierController.store()       

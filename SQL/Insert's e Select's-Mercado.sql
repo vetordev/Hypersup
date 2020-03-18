@@ -53,3 +53,9 @@ select * from item_venda;
 select * from caixa;
 select * from cofre;
 select * from encomenda;
+
+CREATE VIEW VENDA_PRODUTO AS 
+SELECT c.id_caixa, v.id_venda, p.nome, p.descricao, p.marca, p.setor, p.preco FROM CAIXA as c JOIN VENDA as v JOIN ITEM_VENDA as iv JOIN PRODUTO as p
+ON(c.id_venda = v.id_venda and iv.id_venda = v.id_venda and p.id_produto = iv.id_produto );
+
+SELECT * FROM VENDA_PRODUTO;

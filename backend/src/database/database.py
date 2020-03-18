@@ -23,7 +23,7 @@ class Database:
    def findOne(self):
       pass
 
-   def insert(self):
+   def insert(self, query):
       pass
 
    def update(self):
